@@ -22,51 +22,51 @@ cd ..
 
 ## Run the container for redis DB and run the tests
 printf "\nRunning Benchmarks on redis DB, results can be found in the redis folder \n\n"
-docker-compose -f redis/docker-compose.yml up --scale redis-master=1 --scale redis-replica=3 -d
+docker-compose -f docker-compose.yml up --scale redis-master=1 --scale redis-replica=3 -d
 cd YCSB
 for i in {1..3}
 do
-printf "\n##################################################################################\n" >> ../redis/outputLoadRedis.csv
-printf "Loading data worload A try $i \n" >> ../redis/outputLoadRedis.csv 
-./bin/ycsb load redis -s -P workloads/workloada -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true" >> ../redis/outputLoadRedis.csv
-printf "\n##################################################################################\n" >> ../redis/outputRunRedis.csv
-printf "Running test workoad A try $i\n" >> ../redis/outputRunRedis.csv
-./bin/ycsb run redis -s -P workloads/workloada -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true" >> ../redis/outputRunRedis.csv
+printf "\n##################################################################################\n" >> outputLoadRedis.csv
+printf "Loading data worload A try $i \n" >> outputLoadRedis.csv 
+./bin/ycsb load redis -s -P workloads/workloada -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true" >> outputLoadRedis.csv
+printf "\n##################################################################################\n" >> outputRunRedis.csv
+printf "Running test workoad A try $i\n" >> outputRunRedis.csv
+./bin/ycsb run redis -s -P workloads/workloada -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true" >> outputRunRedis.csv
 
-printf "\n##################################################################################\n" >> ../redis/outputLoadRedis.csv 
-printf " Loading data worload B try $i \n" >> ../redis/outputLoadRedis.csv 
-./bin/ycsb load redis -s -P workloads/workloadb -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true" >> ../redis/outputLoadRedis.csv
-printf "\n##################################################################################\n" >> ../redis/outputRunRedis.csv
-printf "Running test workoad B try $i\n" >> ../redis/outputRunRedis.csv
-./bin/ycsb run redis -s -P workloads/workloadb -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true" >> ../redis/outputRunRedis.csv
+printf "\n##################################################################################\n" >> outputLoadRedis.csv 
+printf " Loading data worload B try $i \n" >> outputLoadRedis.csv 
+./bin/ycsb load redis -s -P workloads/workloadb -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true" >> outputLoadRedis.csv
+printf "\n##################################################################################\n" >> outputRunRedis.csv
+printf "Running test workoad B try $i\n" >> outputRunRedis.csv
+./bin/ycsb run redis -s -P workloads/workloadb -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true" >> outputRunRedis.csv
 
-printf "\n##################################################################################\n" >> ../redis/outputLoadRedis.csv 
-printf "Loading data worload C try $i\n" >> ../redis/outputLoadRedis.csv 
-./bin/ycsb load redis -s -P workloads/workloadc -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true" >> ../redis/outputLoadRedis.csv
-printf "\n##################################################################################\n" >> ../redis/outputRunRedis.csv
-printf "Running test workoad C try $i\n" >> ../redis/outputRunRedis.csv
-./bin/ycsb run redis -s -P workloads/workloadc -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true" >> ../redis/outputRunRedis.csv
+printf "\n##################################################################################\n" >> outputLoadRedis.csv 
+printf "Loading data worload C try $i\n" >> outputLoadRedis.csv 
+./bin/ycsb load redis -s -P workloads/workloadc -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true" >> outputLoadRedis.csv
+printf "\n##################################################################################\n" >> outputRunRedis.csv
+printf "Running test workoad C try $i\n" >> outputRunRedis.csv
+./bin/ycsb run redis -s -P workloads/workloadc -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true" >> outputRunRedis.csv
 
-printf "\n##################################################################################\n" >> ../redis/outputLoadRedis.csv 
-printf "Loading data worload D  try $i\n" >> ../redis/outputLoadRedis.csv 
-./bin/ycsb load redis -s -P workloads/workloadd -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true" >> ../redis/outputLoadRedis.csv
-printf "\n##################################################################################\n" >> ../redis/outputRunRedis.csv
-printf "Running test workoad D try $i\n" >> ../redis/outputRunRedis.csv
-./bin/ycsb run redis -s -P workloads/workloadd -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true" >> ../redis/outputRunRedis.csv
+printf "\n##################################################################################\n" >> outputLoadRedis.csv 
+printf "Loading data worload D  try $i\n" >> outputLoadRedis.csv 
+./bin/ycsb load redis -s -P workloads/workloadd -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true" >> outputLoadRedis.csv
+printf "\n##################################################################################\n" >> outputRunRedis.csv
+printf "Running test workoad D try $i\n" >> outputRunRedis.csv
+./bin/ycsb run redis -s -P workloads/workloadd -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true" >> outputRunRedis.csv
 
-printf "\n##################################################################################\n" >> ../redis/outputLoadRedis.csv
-printf "Loading data worload E try $i\n" >> ../redis/outputLoadRedis.csv 
-./bin/ycsb load redis -s -P workloads/workloade -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true" >> ../redis/outputLoadRedis.csv
-printf "\n##################################################################################\n" >> ../redis/outputRunRedis.csv
-printf "Running test workoad E try $i\n" >> ../redis/outputRunRedis.csv
-./bin/ycsb run redis -s -P workloads/workloade -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true" >> ../redis/outputRunRedis.csv
+printf "\n##################################################################################\n" >> outputLoadRedis.csv
+printf "Loading data worload E try $i\n" >> outputLoadRedis.csv 
+./bin/ycsb load redis -s -P workloads/workloade -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true" >> outputLoadRedis.csv
+printf "\n##################################################################################\n" >> outputRunRedis.csv
+printf "Running test workoad E try $i\n" >> outputRunRedis.csv
+./bin/ycsb run redis -s -P workloads/workloade -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true" >> outputRunRedis.csv
 
-printf "\n##################################################################################\n" >> ../redis/outputLoadRedis.csv
-printf "Loading data worload F try $i\n" >> ../redis/outputLoadRedis.csv 
-./bin/ycsb load redis -s -P workloads/workloadf -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true" >> ../redis/outputLoadRedis.csv
-printf "\n##################################################################################\n" >> ../redis/outputRunRedis.csv
-printf "Running test workoad F try $i\n" >> ../redis/outputRunRedis.csv
-./bin/ycsb run redis -s -P workloads/workloadf -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true" >> ../redis/outputRunRedis.csv
+printf "\n##################################################################################\n" >> outputLoadRedis.csv
+printf "Loading data worload F try $i\n" >> outputLoadRedis.csv 
+./bin/ycsb load redis -s -P workloads/workloadf -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true" >> outputLoadRedis.csv
+printf "\n##################################################################################\n" >> outputRunRedis.csv
+printf "Running test workoad F try $i\n" >> outputRunRedis.csv
+./bin/ycsb run redis -s -P workloads/workloadf -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true" >> outputRunRedis.csv
 done
 cd ..
 docker-compose -f redis/docker-compose.yml down -v
