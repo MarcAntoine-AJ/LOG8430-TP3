@@ -69,5 +69,5 @@ printf "Running test workoad F try $i\n" >> outputRunRedis.csv
 ./bin/ycsb run redis -s -P workloads/workloadf -p "redis.host=127.0.0.1" -p "redis.port=6379" -p "redis.clustert=true" >> outputRunRedis.csv
 done
 cd ..
-docker-compose -f redis/docker-compose.yml down -v
+docker-compose -f docker-compose.yml down -v
 printf "\nFinished benchmarking redis DB \n\n"
