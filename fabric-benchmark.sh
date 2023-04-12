@@ -11,7 +11,7 @@ npm init -y
 npm install --only=prod @hyperledger/caliper-cli@0.4
 cd networks/fabric/config_solo_raft/
 ./generate.sh
-cd
+cd ~
 cd caliper-benchmarks/
 sudo snap install docker
 sudo docker pull hyperledger/fabric-ccenv:1.4.4
